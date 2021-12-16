@@ -25,11 +25,38 @@ public class TodoList {
     }
 
     public static int countTasks(TodoList list, boolean onlyDone) {
-        return 0;
+        int count = 0;
+        for (Task task : list.tasks) {
+            if (task != null) {
+                if (onlyDone) {
+                    if (task.done) {
+                        count++;
+                    }
+                } else {
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 
-    public static void output(TodoList list, int progressBarFullLength) {
-
+    public static void output(TodoList list, int widthInCharacters) {
+        for (Task task : list.tasks) {
+            if (task != null) {
+                if (task.done) {
+                    System.out.println("[x] " + task.description);
+                } else {
+                    System.out.println("[ ] " + task.description);
+                }
+            }
+        }
+        int allTasksCount = countTasks(list, false);
+        int doneTasksCount = countTasks(list, true);
+        ProgressBar progressBar = new ProgressBar(allTasksCount, doneTasksCount);
+        int percent = ProgressBar.getPercent(progressBar);
+        String progress = ProgressBar.getProgressBar(progressBar, widthInCharacters);
+        System.out.printf("Erledigt: %s%%\n", percent);
+        System.out.printf("Erledigt: %s\n", progress);
     }
 
     public static void removeTask(TodoList list, int index) {

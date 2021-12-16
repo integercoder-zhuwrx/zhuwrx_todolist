@@ -7,13 +7,13 @@ public class ProgressBar {
         this.value = value;
     }
 
-    public static int getPercentage(ProgressBar progressBar) {
+    public static int getPercent(ProgressBar progressBar) {
         double fraction = (double) progressBar.value / progressBar.max;
         return (int) (fraction * 100);
     }
 
     public static String getProgressBar(ProgressBar progressBar, int widthInChars) {
-        int doneMarkerCount = (int) (getPercentage(progressBar) / 100.0 * widthInChars);
+        int doneMarkerCount = (int) (getPercent(progressBar) / 100.0 * widthInChars);
         int undoneMarkerCount = widthInChars - doneMarkerCount;
         StringBuilder sb = new StringBuilder();
         sb.append('[');

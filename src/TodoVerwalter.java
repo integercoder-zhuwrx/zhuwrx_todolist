@@ -18,6 +18,8 @@ public class TodoVerwalter {
             //ausg -> alles ausgeben
             //entf -> entferne einen Eintrag
 
+            // -------------------------------------------------------
+
             // empty -> create empty list
             // up -> new task
             // erl -> mark index as done
