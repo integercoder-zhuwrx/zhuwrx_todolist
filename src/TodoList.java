@@ -66,8 +66,73 @@ public class TodoList {
         return count;
     }
 
-    public static void output(TodoList list, int widthInCharacters) {
-        for (Task task : list.tasks) {
+    /**
+     * <p>
+     * Display all details of a {@link TodoList}. The output should be placed on the console.
+     * </p>
+     *
+     * <p>
+     * Started by displaying details of each {@link Task} on each line.
+     * Use the indicator <code>[ ]</code> to show that the {@link Task} is not yet {@link Task#done done}.
+     * And use the indicator <code>[*]</code> to show that the {@link Task} is {@link Task#done done}.
+     * After the completion indicator,
+     * add a single space followed by the {@link Task} {@link Task#description description},
+     * all on the same line.
+     * </p>
+     * <p>
+     * For example,
+     * <br /><br />
+     * <code>
+     * [x] OOP task-1
+     * </code>
+     * <br /><br />
+     * </p>
+     *
+     * <p>
+     * After the details of every task have been displayed,
+     * start displaying the overall progress of the to-do list.
+     * On a new line, display the percentage of the tasks that have been done (rounded down to a whole number).
+     * </p>
+     * <p>
+     * For example,
+     * <br /><br />
+     * <code>
+     * Erledigt: 50%
+     * </code>
+     * <br /><br />
+     * </p>
+     *
+     * <p>
+     * On the last line, display a progress bar indicating the percentage of tasks that have been done.
+     * The total width of the progress bar must correspond to the parameter progressBarWidthInChars.
+     * </p>
+     * <p>
+     * For example,
+     * <br /><br />
+     * <code>
+     * Erledigt: [=========]
+     * </code>
+     * <br /><br />
+     * </p>
+     *
+     * <p>
+     * Below is an example output corresponding to progressBarWidthInChars = 6.
+     * <br /><br />
+     * <code>
+     * [x] OOP-Aufgabe-1 <br />
+     * [ ] OOP-Aufgabe-2 <br />
+     * Erledigt: 50% <br />
+     * Erledigt: [===&nbsp;&nbsp;&nbsp;]
+     * </code>
+     * <br /><br />
+     * </p>
+     *
+     * @param todoList The {@link TodoList} being displayed.
+     * @param progressBarWidthInChars The width of the progress bar being displayed.
+     */
+    //                ausgabe(TodoListe liste, int progressBarBreiteInZeichen)
+    public static void output(TodoList todoList, int progressBarWidthInChars) {
+        for (Task task : todoList.tasks) {
             if (task != null) {
                 if (task.done) {
                     System.out.println("[x] " + task.description);
@@ -76,11 +141,11 @@ public class TodoList {
                 }
             }
         }
-        int allTasksCount = countTasks(list, false);
-        int doneTasksCount = countTasks(list, true);
+        int allTasksCount = countTasks(todoList, false);
+        int doneTasksCount = countTasks(todoList, true);
         ProgressBar progressBar = new ProgressBar(allTasksCount, doneTasksCount);
         int percent = ProgressBar.getPercent(progressBar);
-        String progress = ProgressBar.getProgressBar(progressBar, widthInCharacters);
+        String progress = ProgressBar.getProgressBar(progressBar, progressBarWidthInChars);
         System.out.printf("Erledigt: %s%%\n", percent);
         System.out.printf("Erledigt: %s\n", progress);
     }
