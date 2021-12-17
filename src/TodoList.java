@@ -127,7 +127,7 @@ public class TodoList {
      * <br /><br />
      * </p>
      *
-     * @param todoList The {@link TodoList} being displayed.
+     * @param todoList                The {@link TodoList} being displayed.
      * @param progressBarWidthInChars The width of the progress bar being displayed.
      */
     //                ausgabe(TodoListe liste, int progressBarBreiteInZeichen)
@@ -150,6 +150,31 @@ public class TodoList {
         System.out.printf("Erledigt: %s\n", progress);
     }
 
+    /**
+     * <p>
+     * Removes the Task at the given index from the list and moves all elements to the left,
+     * so there are no gaps between tasks.
+     * </p>
+     *
+     * <p>
+     * For example:
+     * <br /><br />
+     * <code>[1, 2, 3, 4, null, null]</code>,
+     * <br /><br />
+     * removing at index <code>1</code> would result in
+     * <br /><br />
+     * <code>[1, 3, 4, null, null, null]</code>.
+     * <br /><br />
+     * </p>
+     *
+     * <p>
+     * If the index is outside the list or there is no task in the index, this method should do nothing.
+     * </p>
+     *
+     * @param list
+     * @param index
+     */
+    //                   entferne(TodoListe liste, int index)
     public static void removeTask(TodoList list, int index) {
         Task[] tasks = list.tasks;
         if (index < tasks.length && tasks[index] != null) {
