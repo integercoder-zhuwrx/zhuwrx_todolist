@@ -303,7 +303,7 @@ class TodoVerwalterTest {
         Thread programThread = new Thread(() -> {
             try {
                 sleep();
-                TodoVerwalter.main(null);
+                TodoMain.main(null);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
