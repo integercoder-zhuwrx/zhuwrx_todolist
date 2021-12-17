@@ -39,9 +39,20 @@ public class TodoList {
         }
     }
 
-    public static int countTasks(TodoList list, boolean onlyDone) {
+    /**
+     * Returns the current number of {@link #tasks} inside the {@link TodoList todoList}.
+     * If <code>onlyDone</code> is <code>true</code>, then only completed {@link #tasks} should be counted.
+     * If <code>onlyDone</code> is <code>false</code>, then all tasks should be counted.
+     *
+     * @param todoList The {@link TodoList} containing {@link #tasks} being counted.
+     * @param onlyDone The <code>boolean</code> value indicating
+     *                 whether this method should count only {@link Task#done done} {@link #tasks}.
+     * @return the number of {@link #tasks} corresponding to the counting rule.
+     */
+    //                 gibAnzahl(TodoListe liste, boolean nurErledigte)
+    public static int countTasks(TodoList todoList, boolean onlyDone) {
         int count = 0;
-        for (Task task : list.tasks) {
+        for (Task task : todoList.tasks) {
             if (task != null) {
                 if (onlyDone) {
                     if (task.done) {
