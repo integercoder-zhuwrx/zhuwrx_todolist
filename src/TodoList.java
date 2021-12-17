@@ -16,25 +16,23 @@ public class TodoList {
     }
 
     /**
-     * Adds a new {@link Task task} with the given {@link Task#description description}
-     * to the end of the {@link TodoList}'s {@link TodoList#tasks} array if there still has empty space.
-     * Of course, the {@link Task task} shouldn't be {@link Task#done done} yet.
-     * Returns {@code true} if the {@link Task task} could be inserted, {@code false} if not.
+     * Adds a new {@link Task} with the given {@link Task#description description}
+     * to the end of the {@link TodoList todoList}'s {@link TodoList#tasks} array if there still has empty space.
+     * Of course, the {@link Task} shouldn't be {@link Task#done done} yet.
+     * Returns {@code true} if the {@link Task} could be inserted, {@code false} if not.
      * There must be no empty spaces between {@link TodoList#tasks} inside the array,
      * i.e., the {@link TodoList}'s {@link TodoList#tasks} array must be filled "consistently" from the beginning!
      *
-     * @param list
-     *        The {@link TodoList} where the new {@link Task} is being added.
-     * @param description
-     *        The {@link Task#description description} of the new {@link Task}.
-     * @return {@code true} if the {@link Task task} could be inserted, {@code false} if not.
+     * @param todoList    The {@link TodoList} where the new {@link Task} is being added.
+     * @param description The {@link Task#description description} of the new {@link Task}.
+     * @return {@code true} if the {@link Task} could be inserted, {@code false} if not.
      */
     //         aufgabeHinzufuegen(TodoListe liste, String beschreibung)
-    public static boolean addTask(TodoList list, String description) {
-        if (list.nextTaskIndex < list.tasks.length) {
+    public static boolean addTask(TodoList todoList, String description) {
+        if (todoList.nextTaskIndex < todoList.tasks.length) {
             Task task = new Task(description, false);
-            list.tasks[list.nextTaskIndex] = task;
-            list.nextTaskIndex++;
+            todoList.tasks[todoList.nextTaskIndex] = task;
+            todoList.nextTaskIndex++;
             return true;
         } else {
             return false;
