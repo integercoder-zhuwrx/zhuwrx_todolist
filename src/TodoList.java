@@ -95,8 +95,19 @@ public class TodoList {
         }
     }
 
-    public static void markAsDone(TodoList list, int index) {
-        Task[] tasks = list.tasks;
+    /**
+     * Marks the {@link Task} at the given index
+     * in the {@link TodoList todoList}'s {@link #tasks} array as done.
+     * If the index is outside the {@link #tasks} array or there is no {@link Task} at the index,
+     * this method should do nothing.
+     *
+     * @param todoList The {@link TodoList} containing the {@link #tasks} array.
+     * @param index    The index of the {@link #tasks} array inside the {@link TodoList todoList}
+     *                 indicating the {@link Task} being marked as {@link Task#done done}.
+     */
+    //        markiereAlsErledigt(TodoListe liste, int index)
+    public static void markAsDone(TodoList todoList, int index) {
+        Task[] tasks = todoList.tasks;
         if (index < tasks.length && tasks[index] != null) {
             Task task = tasks[index];
             task.done = true;
